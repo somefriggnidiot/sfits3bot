@@ -1,0 +1,189 @@
+**********************************
+***        Prehistoric         ***
+**********************************
+
+*****************
+*     0.x.x     *
+*****************
+Clunky UI and shit. 
+Functionality limited to idle-check, messaging, welcome-messaging.
+
+*****************
+*     1.?.?     *
+*****************
+Moved to menu-based UI.
+Information now stored largely in config file.
+
+*****************
+*     1.4.?     *
+*****************
+Added notifications for bot being offline when attempting changes that would affect the server.
+
+*****************
+*     1.5.?     *
+*****************
+Added support for an idle ignore channel. 
+	Intended to be the channel to which idle users are moved to prevent useless checking.
+
+*****************
+*     1.6.?     *
+*****************
+Added additional logging messages for server events.
+
+*****************
+*     1.7.?     *
+*****************
+Implemented server group auto-assign based on forum groups.
+General support for generic bot has officially ended with 1.7.0.
+
+**********************************
+***         Primative          ***
+**********************************
+
+*****************
+*     1.?.1     *
+*****************
+Added "rename" chat command.
+
+*****************
+*     1.?.2     *
+*****************
+Fixed error where message-sending would attempt to send on cancel/close.
+Fixed spelling issues on user movement logging.
+Repositioned pop-up location to be center of program (previously screen).
+
+*****************
+*     1.?.3     *
+*****************
+Fixed application icon to properly display.
+
+*****************
+*     1.?.4     *
+*****************
+Added distinct console logging for server-user-kick events.
+
+
+**********************************
+***          Medieval          ***
+**********************************
+
+*****************
+*     1.7.1     *
+*****************
+Refactored client-join, text-message event handling.
+Removed and refactored chat commands.
+
+*****************
+*     1.7.2     *
+*****************
+Added cake for users celebrating a birthday based on forum birthday.
+
+*****************
+*     1.8.1     *
+*****************
+Introduce support of ChangerChannels.
+
+*****************
+*     1.8.2     *
+*****************
+ChangerChannels: 
+	Fixed bug allowing all messages to change channel name.
+
+*****************
+*     1.8.3     *
+*****************
+ChangerChannels: 	
+	Fixed bug where channels wouldn't revert to default after last user disconnected.
+	Refactored.
+Welcome Message: 
+	Fixed bug preventing sending of messages to guests/new users.
+General: 
+	Brought code up to newer formatting standards.
+
+*****************
+*     1.8.4     *
+*****************
+AutoGrouper:
+	Changed console output for unregistered users.
+ChangerChannels:
+	Removed debug information from console.
+
+General:
+	Forced bot to quit on exit while connected.
+	Added ability to recompile online user list in case of error.
+
+*****************
+*     1.9.1     *
+*****************
+ChatCommands:
+	Fixed handling of chat commands. Should now all work properly.
+EventChannels:
+	Released EventChannels module, auto-creates rooms for tournaments and events. 
+	Created submodule for Gentleman's Agreement Tournament.
+	Created chat command for event channels, requires bot-staff level or higher.
+	Syntax: !eventchannels <"create"/"delete"> <game_abbreviation> <event_abbreviation>
+	Ex: !eventchannels create rl gat
+Timeout:
+	First release of Timeout module, forces user into a timeout channel for specified seconds.
+	Created chat command, requires bot-staff level or higher.
+	Syntax:	!timeout <time_in_seconds> <user>
+	User does not need to be user's full name, but will only work if there's only one match.
+	User cannot leave channel for duration of punishment unless bot is restarted.
+	Requires creation of a supplementary timeout group. Needs perm: i_channel_join_power -1, negate
+
+*****************
+*     1.10.1    *
+*****************
+ChatCommands:
+	Added "!admin" for all users to let admins know when they need help.
+	Added "!suspend" and "!unsuspend" for untimed time-outs.
+NannyMode:
+	Released NannyMode. Sets required join power on selected channels. Persists between connectivity sessions.
+	Added chat commands for nannymode control & limited status checking.
+Timeout:
+	Fixed issue that prevented multiple punishments being ran in a single connectivity session.
+
+*****************
+*     1.10.2    *
+*****************
+ChatCommands:
+	Added:
+	   "!commands" - Lists available commands accessibly by the user.
+			Lowest Accessible Level: Public
+			Syntax: !commands
+	   "!notify" - Sends a message via a chosen medium to the specified recipients.
+			Lowest Accessible Level: Staff
+			Syntax: !notify <who> <how> <message>	
+	   "!nannymode" - Manages "nanny mode," allowing restriction of various channels by changing their required join power with a single command.
+			Lowest Accessible Level: Staff
+			Syntax: !nannymode (<param1>) (<param2>)
+
+*****************
+*     1.10.3    *
+*****************
+ChatCommands: 
+	Changed:
+		Bot now notifies user if the command does not exist or is not implemented.
+BTS Changes:
+	- Handling of welcome messages now done through CJH.
+	- Initiated refactoring on event handling conditionals. (Server->Listeners)
+	- Cleanup of old, commented code in event handlers.
+	
+*****************
+*     1.10.4    *
+*****************
+ChatCommands:
+	Added:
+		"!help" - Displays syntax and usage information for a given command.
+			Lowest Accessible Level: Public
+			Syntax: !help <command>
+	Changed:
+		"Admin" now tells the user how many staff were notified.
+		"BotRename" now automatically trims names that are too long & notifies user.
+		"Nannymode" now allows "enable"/"disable" to function similarly to "on"/"off".
+	Fixed:
+		"TimeOut" now correctly returns a syntax error when the duration is not a number.
+		"BotRename" now correctly returns a syntax error when the new name is not an acceptable length.
+BTS Changes:
+	- Further cleanup of useless code.
+	- Full refactoring & commenting pass on Admin and BotRename command handlers.
